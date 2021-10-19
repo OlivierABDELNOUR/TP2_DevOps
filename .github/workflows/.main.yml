@@ -16,6 +16,7 @@ jobs:
       - uses: joschi/setup-jdk@v2
         with:
           java-version: '11'
+      - run: java -cp java HelloWorldApp
 #finally build your app with the latest command
       - name: Build and test with Maven
         run: mvn clean verify
