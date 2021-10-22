@@ -28,7 +28,7 @@ jobs:
       - name: Login to sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp2devops -Dsonar.organization=OlivierABDELNOUR -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN }} --file ./simple-api/pom.xml    
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp2devops -Dsonar.organization=tp2devops -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN }} --file ./simple-api/pom.xml    
         #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=OlivierABDELNOUR_TP2_DevOps
         
       - name: build image and push backend
