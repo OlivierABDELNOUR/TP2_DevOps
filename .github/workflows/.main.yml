@@ -25,6 +25,9 @@ jobs:
       - name: Login to Dockerhub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_TOKEN }}
         
+      - name: Login to Sonar
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=devops-2020 -Dsonar.organization=devops-epf -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN }} --file ./simple-api/pom.xml    
+        
       - name: build image and push backend
         uses: docker/build-push-action@v2
         with:
